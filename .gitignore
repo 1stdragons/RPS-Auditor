@@ -1,6 +1,5 @@
 __pycache__/
 *.pyc
-*.pyo
 processor/__pycache__/
 .streamlit/__pycache__/
 .streamlit/secrets.toml
