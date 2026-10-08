@@ -1,0 +1,96 @@
+{
+  "project": "RPS-Auditor-fardianpoltas",
+  "owner": "FardianSyah @fardianpoltas - D3 TI Poltas",
+  "version": "V6 FINAL FIX - POLTAS",
+  "master_prompt": "config_prompt_v6.txt",
+  "structure": {
+    "root_files": [
+      "app.py - MASTER PROMPT V6 - 22 SKKNI VERIFIED + BLOOM + SAWIT - POLTAS - Portal dihilangkan",
+      "config_prompt.txt -> V6 content (V5 upgraded)",
+      "config_prompt_v6.txt - MASTER PROMPT V6 FINAL FIX",
+      "requirements.txt",
+      ".gitignore",
+      ".clinerules",
+      "fixture_RPS_Keamanan_OPSI_C.docx - contoh 4 RPS",
+      "opsi_c.py, probe_reasoning.py, test_opsi_c.py - processor tambahan",
+      "skkni-2026-10-08.xlsx - 1240 baris - sumber utama"
+    ],
+    ".streamlit": [
+      "secrets.toml"
+    ],
+    "docs": {
+      "index.html": "V6 - 23 AKTIF + 15 DICABUT + BLOOM BAR + SAWIT PKS - Offline 100%",
+      "config_prompt_v6.txt": "copy dari root",
+      "panduan/": "18 file dari /mnt/data/panduan - PDF SKKNI: SKKNI 2005-094.pdf.pdf, 2005-142, 2006-269, 2006-272, 2007-115, 2008-114, 2010-142, 2011-273, 2012-610, 2012-615, 2012-717, 2014-118, 2014-165, 2014-352, 2014-400, 2014-419, 2014-424, 2015-045, 2015-055 + JSON"
+    },
+    "panduan/": [
+      "INDEX_10_SKKNI_BERLAKU.json - 23 kritis D3 TI",
+      "INDEX_SKKNI_LENGKAP_2026.json - 135 IT SKKNI",
+      "PENCABUTAN_MAP.json + PENCABUTAN_MAP_LENGKAP.json - 27 pencabutan",
+      "Mapping_MK_SKKNI_D3_TI.json - mapping MK ke SKKNI V6",
+      "MD files: 282_2016, 321_2016, 268_2020, 299_2020, 300_2020, 102_2023, 103_2023, 023_2022, 024_2022, 120_2025"
+    ],
+    "processor/": [
+      "__init__.py",
+      "auditor.py - audit_lengkap_rps + SKKNI_LAYERS - override KALIMAT_VERIFIKASI_GAGAL='' karena panduan lokal",
+      "extractor.py - extract DOCX",
+      "generator.py - generate REAL DOCX + XLSX 4 sheet",
+      "validator.py - validasi 14 poin + Bloom + Sawit + DICABUT check",
+      "__pycache__/"
+    ]
+  },
+  "bank_skkni_v6": {
+    "aktif_23": [
+      "285/2016 Computer Technical Support Mencabut 2006-272 [BERLAKU]",
+      "282/2016 Software Development Mencabut 2012-615 dan 2006-142 [BERLAKU]",
+      "321/2016 Jaringan Komputer Mencabut 2006-269 [BERLAKU]",
+      "56/2018 Pengoperasian Komputer Mencabut 2005-094 [BERLAKU]",
+      "107/2018 Multimedia Mencabut 2007-115 [BERLAKU]",
+      "101/2018 Instalasi Fiber Optik Mencabut 2012-717 [BERLAKU]",
+      "27/2019 Programming and Software Development [BERLAKU]",
+      "90/2015 Enterprise Architecture Design [BERLAKU]",
+      "45/2015 Pengelolaan Pusat Data [BERLAKU]",
+      "191/2024 Keamanan Informasi Mencabut 2015-55 [BERLAKU]",
+      "236/2024 Kesadaran Keamanan Informasi [BERLAKU]",
+      "103/2023 Perlindungan Data Pribadi [BERLAKU]",
+      "102/2023 Cloud Computing Mencabut 2015-456 [BERLAKU]",
+      "30/2025 Manajemen Layanan TI Mencabut 2012-610 [BERLAKU]",
+      "200/2026 ICT Project Management Mencabut 2025-345 [BERLAKU]",
+      "103/2026 AI Knowledge Based System Mencabut 2021-123 [BERLAKU]",
+      "299/2020 AI Data Science [BERLAKU]",
+      "268/2020 AI Data Management [BERLAKU]",
+      "300/2020 IoT [BERLAKU]",
+      "391/2020 Security Operations Center [BERLAKU]",
+      "4/2023 Kriptografi [BERLAKU]",
+      "120/2025 Tanggap Insiden Siber [BERLAKU]",
+      "47/2022 Digital Forensik [BERLAKU]",
+      "24/2022 Audit Keamanan Informasi [BERLAKU]",
+      "23/2022 Uji Keamanan Siber [BERLAKU]"
+    ],
+    "dicabut_15": [
+      "142/2005 DICABUT 2016-282",
+      "269/2006 DICABUT 2016-321",
+      "272/2006 DICABUT",
+      "115/2007 DICABUT 2018-107",
+      "114/2008 DICABUT 2019-140",
+      "610/2012 DICABUT 2025-030 -> ganti 30/2025",
+      "717/2012 DICABUT 2018-101 -> ganti 101/2018",
+      "615/2012 DICABUT 2016-282 -> ganti 282/2016",
+      "400/2014 DICABUT 2020-173",
+      "55/2015 DICABUT 2024-191 -> ganti 191/2024",
+      "456/2015 DICABUT 2023-102 -> ganti 102/2023",
+      "94/2005 DICABUT 2018-056 -> ganti 56/2018",
+      "345/2025 DICABUT 2026-200 -> ganti 200/2026",
+      "18/2022 DICABUT 2024-172",
+      "123/2021 DICABUT 2026-103 -> ganti 103/2026"
+    ]
+  },
+  "rules": {
+    "portal": "DIHILANGKAN - pakai docs/panduan/ PDF + INDEX_SKKNI_LENGKAP_2026.json + 7 screenshot + Excel 1240",
+    "poltas_not_polsel": "Semua Polsel diganti Poltas - Politeknik Aceh Selatan",
+    "bloom": "C1 Menyebutkan, C2 Menjelaskan, C3 Menerapkan 40%, C4 Menganalisis 30%, C5 Mengevaluasi 15%, C6 Merancang 15% - Target Smtr 1-2 60% C3-C6, Smtr 3+ 80% - Rumus (C3-C6/Total)*100%",
+    "sawit": "PKS, Blok A1-A2, TPH, TBS, Sortasi Grade A/B/C, Ton/Ha, Ritase, Rendemen, Premi - Prioritas bukan absolut - Tag [KONTEKS UMUM] jika tidak relevan",
+    "output": "DOCX + XLSX 4 sheet (16 Pertemuan, Matriks CPL-CPMK-SKKNI, Penilaian, Log Pembaruan SKKNI DICABUT->Baru) + Teks E-Learning + Anti-gagal rule",
+    "validasi_14_poin": "Lengkap, Bloom >= target, SKKNI AKTIF bukan DICABUT, Sawit prioritas, Keterkaitan logis, Indikator terukur, 16 pertemuan, Rubrik flowchart 4 kriteria, 3 kasus uji, UTS praktik UAS project, Bobot 100%, Kebijakan AI, Identitas tidak dikarang, DOCX & XLSX konsisten"
+  }
+}

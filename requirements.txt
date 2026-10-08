@@ -1,6 +1,2 @@
-streamlit
-groq
-python-docx
-openpyxl
-PyMuPDF
-requests
+streamlit\npython-docx\nopenpyxl\nreportlab\ngroq\n
+
