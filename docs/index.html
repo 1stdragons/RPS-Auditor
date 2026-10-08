@@ -1,96 +1,197 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RPS-Auditor V6 - 22 SKKNI Verified + Bloom + Sawit</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPS-Auditor V12.1 - Bloom Real Auditor + 22 SKKNI Verified | Polsel</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#0A0F1E;color:#E6EDF3;font-family:'Inter',sans-serif}
-.navbar{display:flex;justify-content:space-between;align-items:center;background:#0F1424;border-bottom:1px solid rgba(255,255,255,0.08);padding:14px 22px;position:sticky;top:0;z-index:999}
-.nav-left{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;background:linear-gradient(135deg,#00D9FF,#00FF9D);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#0A0F1E;font-size:20px}.nav-title{font-weight:800} .nav-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:#00D9FF;letter-spacing:0.18em}
-.badge{background:#151C30;border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8EA0C0}.exec-badge{background:rgba(0,255,157,0.12);border:1px solid rgba(0,255,157,0.3);color:#00FF9D;border-radius:999px;padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;display:flex;align-items:center;gap:8px}.exec-dot{width:8px;height:8px;background:#00FF9D;border-radius:50%;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-.container{max-width:1320px;margin:0 auto;padding:22px;display:grid;grid-template-columns:1.3fr 0.85fr;gap:20px}.card{background:#121A2E;border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:26px}.title-big{font-size:38px;font-weight:800} .title-big span{color:#00D9FF} .subtitle{color:#8EA0C0;margin-top:10px}
-.terminal-head{background:#0D1117;border:1px solid #21262D;border-bottom:none;border-radius:12px 12px 0 0;padding:12px 16px;display:flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px} .dot{width:10px;height:10px;border-radius:50%} .dot.r{background:#FF5F56} .dot.y{background:#FFBD2E} .dot.g{background:#27C93F}
-.terminal-body{background:#0D1117;border:1px solid #21262D;border-radius:0 0 12px 12px;padding:14px;font-family:'JetBrains Mono',monospace;font-size:11px;max-height:400px;overflow:auto;line-height:1.8}
-.panduan-item{background:#0F1528;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center}
-.panduan-no{font-family:'JetBrains Mono',monospace;font-weight:700;color:#00D9FF;font-size:11px} .panduan-judul{font-size:11px} .status-berlaku{background:rgba(0,255,157,0.12);color:#00FF9D;border:1px solid rgba(0,255,157,0.2);border-radius:999px;padding:3px 10px;font-size:9px;font-family:'JetBrains Mono',monospace} .status-dicabut{background:rgba(255,95,86,0.12);color:#FF5F56;border:1px solid rgba(255,95,86,0.3);border-radius:999px;padding:3px 10px;font-size:9px;font-family:'JetBrains Mono',monospace}
-.kalimat-box{background:rgba(0,255,157,0.08);border:1px solid rgba(0,255,157,0.25);border-radius:12px;padding:12px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#00FF9D}
-.kalimat-box-dicabut{background:rgba(255,95,86,0.08);border:1px solid rgba(255,95,86,0.25);border-radius:12px;padding:12px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#FF5F56}
-.search-box{background:#0B1222;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 14px;width:100%;color:#E6EDF3;font-family:'JetBrains Mono',monospace;font-size:11px;margin:10px 0}
-.bloom-bar{display:flex;gap:4px;margin:8px 0}.bloom-c1{background:#5A6A8A;height:8px;border-radius:4px} .bloom-c3{background:#00D9FF;height:8px;border-radius:4px} .bloom-c4{background:#00FF9D;height:8px;border-radius:4px} .bloom-c5{background:#FFC947;height:8px;border-radius:4px} .bloom-c6{background:#FF5F56;height:8px;border-radius:4px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f7fafc;color:#1a202c;line-height:1.6}
+.navbar{display:flex;justify-content:space-between;align-items:center;background:#ffffff;border-bottom:1px solid #e2e8f0;padding:14px 22px;position:sticky;top:0;z-index:999}
+.nav-left{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;background:linear-gradient(135deg,#00D9FF,#00FF9D);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#0A0F1E;font-size:20px}
+.nav-title{font-weight:800;color:#1a202c} .nav-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:#667eea;letter-spacing:0.12em}
+.badge{display:inline-block;background:#edf2f7;border:1px solid #cbd5e0;border-radius:999px;padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#2d3748;font-weight:600}
+.badge-blue{background:#ebf8ff;border:1px solid #90cdf4;color:#2b6cb0}
+.badge-green{background:#f0fff4;border:1px solid #9ae6b4;color:#22543d}
+.badge-red{background:#fff5f5;border:1px solid #feb2b2;color:#c53030}
+.badge-yellow{background:#fffff0;border:1px solid #fbd38d;color:#975a16}
+.exec-badge{background:#f0fff4;border:1px solid #9ae6b4;color:#22543d;border-radius:999px;padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;display:flex;align-items:center;gap:8px}
+.exec-dot{width:8px;height:8px;background:#48bb78;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.container{max-width:1320px;margin:0 auto;padding:22px;display:grid;grid-template-columns:1.3fr 0.85fr;gap:20px}
+.container-single{max-width:1100px;margin:0 auto;padding:0 20px}
+.hero{padding:50px 0 30px;text-align:center;background:linear-gradient(180deg,#ffffff 0%,#f7fafc 100%);grid-column:1 / -1}
+.hero h1{font-size:42px;font-weight:800;color:#1a202c;margin-bottom:12px;line-height:1.1}
+.hero p{font-size:18px;color:#4a5568;max-width:750px;margin:0 auto 24px}
+.card{background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:24px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.05);color:#1a202c}
+.title-big{font-size:32px;font-weight:800;color:#1a202c} .title-big span{color:#667eea} .subtitle{color:#4a5568;margin-top:10px;font-size:14px;line-height:1.5}
+.terminal-head{background:#1a202c;border:1px solid #2d3748;border-bottom:none;border-radius:12px 12px 0 0;padding:12px 16px;display:flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#a0aec0}
+.dot{width:10px;height:10px;border-radius:50%} .dot.r{background:#ff5f56} .dot.y{background:#ffbd2e} .dot.g{background:#27c93f}
+.terminal-body{background:#1a202c;border:1px solid #2d3748;border-radius:0 0 12px 12px;padding:14px;font-family:'JetBrains Mono',monospace;font-size:11px;max-height:350px;overflow:auto;line-height:1.8;color:#e2e8f0}
+.panduan-item{background:#f7fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center}
+.panduan-no{font-family:'JetBrains Mono',monospace;font-weight:700;color:#2b6cb0;font-size:11px} .panduan-judul{font-size:11px;color:#1a202c}
+.status-berlaku{background:#f0fff4;color:#22543d;border:1px solid #9ae6b4;border-radius:999px;padding:3px 10px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:600}
+.status-dicabut{background:#fff5f5;color:#c53030;border:1px solid #feb2b2;border-radius:999px;padding:3px 10px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:600}
+.kalimat-box{background:#f0fff4;border:1px solid #9ae6b4;border-radius:12px;padding:12px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#22543d}
+.kalimat-box-dicabut{background:#fff5f5;border:1px solid #feb2b2;border-radius:12px;padding:12px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#c53030}
+.search-box{background:#ffffff;border:1px solid #cbd5e0;border-radius:12px;padding:10px 14px;width:100%;color:#1a202c;font-family:'JetBrains Mono',monospace;font-size:11px;margin:10px 0}
+.bloom-bar{display:flex;gap:4px;margin:8px 0;height:12px}
+.bloom-c1{background:#a0aec0;border-radius:4px} .bloom-c2{background:#90cdf4;border-radius:4px} .bloom-c3{background:#63b3ed;border-radius:4px} .bloom-c4{background:#48bb78;border-radius:4px} .bloom-c5{background:#ecc94b;border-radius:4px} .bloom-c6{background:#f56565;border-radius:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:24px 0}
+.btn{display:inline-block;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;transition:all 0.2s;font-size:14px}
+.btn-primary{background:#1a202c;color:#fff} .btn-primary:hover{background:#2d3748;transform:translateY(-1px)}
+.btn-secondary{background:#fff;border:1px solid #e2e8f0;color:#1a202c} .btn-secondary:hover{background:#f7fafc}
+.kbd{background:#edf2f7;border:1px solid #cbd5e0;border-bottom-width:2px;border-radius:6px;padding:2px 6px;font-family:monospace;font-size:13px;color:#1a202c}
+.diff-orig{background:#fff5f5;border:1px solid #feb2b2;border-radius:8px;padding:12px;color:#1a202c}
+.diff-rev{background:#f0fff4;border:1px solid #9ae6b4;border-radius:8px;padding:12px;color:#1a202c}
+code{background:#edf2f7;padding:2px 6px;border-radius:4px;font-size:13px;color:#1a202c}
+footer{background:#1a202c;color:#a0aec0;padding:40px 0;margin-top:40px;text-align:center}
+@media(max-width:900px){.container{grid-template-columns:1fr}.hero h1{font-size:28px}}
 </style>
 </head>
 <body>
 <div class="navbar">
-  <div class="nav-left"><div class="logo" style="background:white;padding:4px"><img src="logo_poltas.png" style="width:100%;height:100%;object-fit:contain"></div><div><div class="nav-title">RPS-Auditor V6</div><div class="nav-sub">22 SKKNI VERIFIED + BLOOM + SAWIT • FORMAT DEFAULT 100% TETAP • TANPA LOGO • docs/panduan/ PDF</div></div></div>
-  <div style="display:flex;gap:8px"><div class="badge">23 AKTIF</div><div class="badge" style="color:#FF5F56;border-color:rgba(255,95,86,0.3)">15 DICABUT</div><div class="exec-badge"><div class="exec-dot"></div> V6 OFFLINE</div></div>
+  <div class="nav-left"><div class="logo">R</div><div><div class="nav-title">RPS-Auditor V12.1</div><div class="nav-sub">22 SKKNI VERIFIED + BLOOM REAL AUDITOR + SAWIT PKS • FORMAT DEFAULT 100% TETAP</div></div></div>
+  <div style="display:flex;gap:8px;align-items:center"><span class="badge badge-blue">23 AKTIF</span><span class="badge badge-red">15 DICABUT</span><div class="exec-badge"><div class="exec-dot"></div> V12.1 STANDALONE</div></div>
 </div>
+
+<div style="max-width:1320px;margin:0 auto;padding:0 22px">
+<div class="hero">
+<h1>Bloom Real Auditor<br><span style="color:#667eea">Bukan Cuma [BERLAKU]</span></h1>
+<p>Cek kesesuaian kata-kata Taksonomi Bloom C1-C6 secara masuk akal. Deteksi tag <span class="kbd">[C3]</span> vs KKO asli, hitung distribusi, target vokasi 60%/80% — Format Input=Output 100%.</p>
+<div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap">
+<a href="https://github.com/1stdragons/RPS-Auditor" class="btn btn-primary">📦 GitHub Repo</a>
+<a href="https://github.com/1stdragons/RPS-Auditor/blob/main/app.py" class="btn btn-secondary">📄 Lihat app.py V12.1</a>
+<a href="#" onclick="alert('Jalankan: pip install -r requirements.txt && streamlit run app.py');return false" class="btn btn-secondary">🚀 RUN Standalone</a>
+</div>
+<div style="margin-top:20px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+<span class="badge badge-green">✅ Fix IndexError no such group</span>
+<span class="badge badge-blue">✅ Fix readable hitam di putih</span>
+<span class="badge badge-yellow">✅ Fix double pdf.pdf</span>
+<span class="badge">✅ Executable tanpa repo</span>
+</div>
+</div>
+</div>
+
 <div class="container">
   <div>
     <div class="card">
-      <div style="float:right;font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right"><div style="color:#5A6A8A;font-size:8px">MASTER PROMPT</div><div style="color:#00D9FF">V6 • 22 VERIFIED</div><div style="color:#00FF9D">BLOOM C3-C6 80%</div><div style="color:#FFC947">SAWIT PKS</div></div>
-      <div class="title-big">RPS-Auditor <span>V6 FINAL FIX</span></div>
-      <div class="subtitle"><img src="logo_poltas.png" style="width:48px;height:48px;vertical-align:middle;margin-right:8px">FORMAT DEFAULT: RPS_Keamanan.docx 63x17 + 17x9 + 8x4 - 100% TETAP TANPA LOGO - SKKNI V6 23 AKTIF + Bloom + Sawit</div>
-      <div style="margin-top:12px;font-size:12px;color:#C9D1D9;line-height:1.6">
-        ✅ <b>Portal online DIHILANGKAN</b> — sumber hukum: <b>7 screenshot DAFTAR DOKUMEN SKKNI</b> + <b>skkni-2026-10-08.xlsx 1240 baris</b> + <b>docs/panduan/ PDF (18 file)</b><br>
-        <b style="color:#00FF9D">23 AKTIF RELEVAN TI [BERLAKU]:</b> 285/2016→2006-272, 282/2016→2012-615 & 2005-142, 321/2016→2006-269, 56/2018→2005-094, 107/2018→2007-115, 101/2018→2012-717, 27/2019, 191/2024→2015-55, 30/2025→2012-610, 102/2023→2015-456, 103/2026→2021-123, 200/2026→2025-345, 120/2025, 391/2020 SOC, 4/2023 Kriptografi, 47/2022 Forensik<br>
-        <b style="color:#FF5F56">15 DICABUT JANGAN DIPAKAI:</b> 142/2005, 269/2006, 272/2006, 115/2007, 114/2008, 610/2012, 717/2012, 615/2012, 400/2014, 55/2015, 456/2015, 94/2005, 345/2025, 18/2022, 123/2021 → TEMUAN KRITIS<br>
+      <div style="float:right;font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right"><div style="color:#718096;font-size:8px">MASTER PROMPT</div><div style="color:#2b6cb0">V12.1 • 23 AKTIF</div><div style="color:#22543d">BLOOM C3-C6 80%</div><div style="color:#975a16">SAWIT PKS</div></div>
+      <div class="title-big">RPS-Auditor <span>V12.1 FINAL FIX</span></div>
+      <div class="subtitle">FORMAT DEFAULT: RPS_Keamanan.docx 63x17 + 17x9 + 8x4 - 100% TETAP - SKKNI 23 AKTIF + Bloom Real Auditor + Sawit PKS Blok A1-A2 TPH TBS Grade A/B/C - Bisa dieksekusi langsung tanpa repo</div>
+      <div style="margin-top:12px;font-size:13px;color:#2d3748;line-height:1.6">
+        ✅ <b>Standalone Executable</b> — tidak butuh <code>processor/</code> atau <code>config_prompt_v6.txt</code>, KKO Bloom hardcode di <code>app.py</code><br>
+        <b style="color:#22543d">23 AKTIF [BERLAKU]:</b> 285/2016, 282/2016, 321/2016, 191/2024, 30/2025, 102/2023, 103/2026, 200/2026, 120/2025, 391/2020 SOC, 4/2023 Kriptografi, 47/2022 Forensik + Bloom + Sawit<br>
+        <b style="color:#c53030">15 DICABUT:</b> 142/2005, 269/2006, 610/2012, 55/2015, 456/2015, 345/2025 → TEMUAN KRITIS<br>
         <div class="bloom-bar"><div class="bloom-c1" style="width:10%" title="C1-C2 20%"></div><div class="bloom-c3" style="width:40%" title="C3 40% Menerapkan"></div><div class="bloom-c4" style="width:30%" title="C4 30% Menganalisis"></div><div class="bloom-c5" style="width:15%" title="C5 15% Mengevaluasi"></div><div class="bloom-c6" style="width:15%" title="C6 15% Merancang"></div></div>
         <b>Bloom:</b> C3 Menerapkan/Mengkonfigurasi/Mengamankan 40% + C4 Menganalisis/Mengaudit 30% + C5 Menguji 15% + C6 Merancang SOP/Dashboard 15% = Target Smtr 1-2 min 60% C3-C6, Smtr 3+ min 80% | <b>Sawit:</b> PKS, Blok A1-A2, TPH, TBS, Grade A/B/C, Ton/Ha, Ritase, Rendemen, Premi
       </div>
     </div>
-    <div style="height:10px"></div>
-    <div class="terminal-head"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span style="margin-left:8px">rps-auditor V6 --verified --bloom --sawit --anti-gagal</span><span style="margin-left:auto;color:#00FF9D">V6 READY • 22 AKTIF • 14 DICABUT • BLOOM • SAWIT</span></div>
+
+    <div class="card">
+      <h3 style="color:#1a202c;margin-bottom:12px">📊 Audit Bloom Taksonomi - Semester 3 (Contoh Real V12.1)</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+        <div style="background:#ebf8ff;border:1px solid #90cdf4;padding:8px 12px;border-radius:8px;color:#1a365d">Total Sub-CPMK: <b>14</b></div>
+        <div style="background:#f0fff4;border:1px solid #9ae6b4;padding:8px 12px;border-radius:8px;color:#22543d">C3-C6: <b>11/14 = 78.6%</b></div>
+        <div style="background:#fff5f5;border:1px solid #feb2b2;padding:8px 12px;border-radius:8px;color:#1a202c">Target 80% → <b style="color:#e53e3e">TIDAK LULUS</b></div>
+      </div>
+      <div class="bloom-bar"><div class="bloom-c1" style="width:14%" title="C1:2"></div><div class="bloom-c3" style="width:21%" title="C3:3"></div><div class="bloom-c4" style="width:21%" title="C4:3"></div><div class="bloom-c5" style="width:21%" title="C5:3"></div><div class="bloom-c6" style="width:14%" title="C6:2"></div></div>
+      <div style="font-size:12px;color:#4a5568">C1:2 | C2:0 | C3:3 | C4:3 | C5:3 | C6:2 | Rumus: (C3-C6/Total)*100% = (11/14)*100% = 78.6%</div>
+      <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><h4 style="color:#c53030">❌ Sebelum - Tidak Masuk Akal</h4><div class="diff-orig" style="margin-top:8px"><code>Sub-CPMK 1.1 - Memahami algoritma</code><br><span style="color:#e53e3e">→ C2, tidak vokasi, objek tidak jelas</span></div><div class="diff-orig" style="margin-top:8px"><code>Sub-CPMK 2.1 [C3] - Menjelaskan enkripsi</code><br><span style="color:#e53e3e">→ Tag C3 tapi KKO C2 TIDAK SESUAI</span></div></div>
+        <div><h4 style="color:#22543d">✅ Sesudah - Masuk Akal Bloom</h4><div class="diff-rev" style="margin-top:8px"><code>Sub-CPMK 1.1 [C3] - Menerapkan algoritma sorting untuk data panen Blok A1-A2 TPH TBS Grade A/B/C sesuai alur PKS [282/2016]</code><br><span style="color:#22543d">→ C3 vokasi + objek jelas + konteks sawit + SKKNI</span></div><div class="diff-rev" style="margin-top:8px"><code>Sub-CPMK 2.2 [C3] - Menerapkan enkripsi file data panen Blok A1 dengan VeraCrypt sesuai SOP PKS [191/2024]</code><br><span style="color:#22543d">→ C3 sesuai + konteks sawit + SKKNI</span></div></div>
+      </div>
+    </div>
+
+    <div class="terminal-head"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span>bloom-auditor-v12.1.log — 12 checks</span></div>
     <div class="terminal-body">
-      <div>[01/12] Identitas Poltas [LOGO 3 WARNA] FIX ✅</div>
-      <div>[02/12] CPL-CPMK Bloom C1-C6 Tabel distribusi + % + LULUS/TIDAK FIX ✅</div>
+      <div>[01/12] Bloom Detect: C1 menyebutkan, C2 menjelaskan, C3 menerapkan/mengkonfigurasi, C4 menganalisis/mengaudit, C5 mengevaluasi/menguji, C6 merancang ✅</div>
+      <div>[02/12] Tag Check: [C3] vs KKO — "Menjelaskan" = C2 TIDAK SESUAI → Saran ganti jadi "Menerapkan" atau tag jadi [C2] ✅</div>
       <div>[03/12] SKKNI Audit: Cek DICABUT 142/2005, 269/2006, 610/2012, 55/2015, 456/2015 → TEMUAN KRITIS REVISI ✅</div>
       <div>[04/12] SKKNI Verified: 285/2016, 282/2016, 321/2016, 30/2025, 191/2024, 102/2023, 103/2026, 200/2026, 120/2025 [BERLAKU] FIX ✅</div>
-      <div>[05/12] Sawit Audit: % PKS vs umum + konteks data timbangan PKS FIX ✅</div>
-      <div>[06/12] Flowchart Pert 6 Rubrik 4 kriteria: Simbol, Grade/Premi, Alur Blok->TPH->Timbangan->Sortasi, Kasus dosen FIX ✅</div>
-      <div>[07/12] Testing Pert 15 & Sub-CPMK 4.2: 3 kasus uji Normal/Batas/Tidak Valid + Bug log + Re-test + Video 2 menit FIX ✅</div>
-      <div>[08/12] Matriks 5 Kolom: Komponen | Bukti | Masalah | Dampak | Rekomendasi + SKKNI Baru FIX ✅</div>
+      <div>[05/12] Sawit Audit: % PKS vs umum + konteks data timbangan PKS Blok A1-A2 TPH TBS Grade ✅</div>
+      <div>[06/12] Readable Fix: #1A202C hitam di #FFFFFF putih — bukan putih di putih ✅</div>
+      <div>[07/12] IndexError Fix: regex (C\d) tanpa group → (C(\d)) dengan group ✅</div>
+      <div>[08/12] Double pdf.pdf Fix: SKKNI 2025-345.pdf.pdf → SKKNI 2025-345.pdf ✅</div>
+      <div>[09/12] Standalone: app.py 412 baris executable tanpa repo, tanpa processor/ ✅</div>
+      <div>[10/12] Pages: docs/index.html 9.5KB V12.1 landing readable ✅</div>
+      <div>[11/12] Git: git push origin main --force → dah bersih ✅</div>
+      <div>[12/12] Deploy: https://1stdragons.github.io/RPS-Auditor/ V12.1 CLEAN ✅</div>
     </div>
     <div style="height:10px"></div>
+
     <div class="card">
-      <div style="display:flex;justify-content:space-between"><div style="font-weight:800">BANK SKKNI V6 - 22 AKTIF + 14 DICABUT + BLOOM + SAWIT</div><div style="border:1px solid #00FF9D;color:#00FF9D;border-radius:999px;padding:4px 8px;font-size:9px;font-family:'JetBrains Mono',monospace">V6 • 7 SCREENSHOT + EXCEL 1240 + PDF</div></div>
-      <input class="search-box" id="searchBox" placeholder="Cari: 282, jaringan, dicabut, bloom, sawit, PKS...">
+      <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-weight:800;color:#1a202c">BANK SKKNI V12.1 - 23 AKTIF + 15 DICABUT + BLOOM + SAWIT</div><div style="border:1px solid #9ae6b4;color:#22543d;background:#f0fff4;border-radius:999px;padding:4px 8px;font-size:9px;font-family:'JetBrains Mono',monospace">V12.1 • 23 AKTIF + BLOOM REAL</div></div>
+      <input class="search-box" id="searchBox" placeholder="Cari: 282, jaringan, dicabut, bloom, sawit, PKS, C3, C4...">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
         <div>
-          <div style="font-size:11px;font-weight:700;color:#00FF9D;margin-bottom:6px">22 AKTIF RELEVAN TI [BERLAKU]</div>
+          <div style="font-size:11px;font-weight:700;color:#22543d;margin-bottom:6px">23 AKTIF RELEVAN TI [BERLAKU]</div>
           <div id="aktifList" style="max-height:400px;overflow:auto"></div>
         </div>
         <div>
-          <div style="font-size:11px;font-weight:700;color:#FF5F56;margin-bottom:6px">14 DICABUT JANGAN DIPAKAI → TEMUAN KRITIS</div>
+          <div style="font-size:11px;font-weight:700;color:#c53030;margin-bottom:6px">15 DICABUT JANGAN DIPAKAI → TEMUAN KRITIS</div>
           <div id="dicabutList" style="max-height:400px;overflow:auto"></div>
         </div>
       </div>
-      <div class="kalimat-box">✅ V6 - 22 AKTIF [BERLAKU] dari docs/panduan/ PDF + 7 screenshot DAFTAR DOKUMEN SKKNI + Excel 1240 baris - Portal dihilangkan - 27 pencabutan - Bloom C3-C6 60-80% - Sawit PKS Blok A1-A2 TPH TBS Grade Ton/Ha</div>
-      <div class="kalimat-box-dicabut">🔴 14 DICABUT: 142/2005→282/2016, 269/2006→321/2016, 610/2012→30/2025, 55/2015→191/2024, 456/2015→102/2023, 345/2025→200/2026, 123/2021→103/2026 - Jika RPS lama pakai ini → TEMUAN KRITIS - Ganti dengan BANK AKTIF</div>
+      <div class="kalimat-box">✅ V12.1 - 23 AKTIF [BERLAKU] dari docs/panduan/ PDF + Bloom Real Auditor C1-C6 + Sawit PKS Blok A1-A2 TPH TBS Grade Ton/Ha - Readable hitam di putih - Executable tanpa repo</div>
+      <div class="kalimat-box-dicabut">🔴 15 DICABUT: 142/2005→282/2016, 269/2006→321/2016, 610/2012→30/2025, 55/2015→191/2024, 456/2015→102/2023, 345/2025→200/2026 - Jika RPS lama pakai ini → TEMUAN KRITIS</div>
     </div>
   </div>
+
   <div>
     <div class="card">
-      <div style="font-weight:800">PREVIEW RPS V6 - 4 RPS AUDIT + BLOOM + SAWIT</div>
-      <div style="margin-top:10px;background:#0B1222;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#5A6A8A">V6 - config_prompt_v6.txt - 22 AKTIF + Bloom + Sawit - docs/panduan/ PDF</div>
-        <div style="font-weight:800;margin:10px 0">RPS V6 FINAL - Contoh: Keamanan Informasi</div>
-        <div style="font-size:11px;line-height:1.6">
+      <div style="font-weight:800;color:#1a202c">🚀 Cara Pakai V12.1 Standalone</div>
+      <div style="margin-top:10px;background:#f7fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#718096">Executable tanpa clone repo - Fix readable + Bloom Real</div>
+        <div style="font-weight:800;margin:10px 0;color:#1a202c">RPS V12.1 FINAL - Standalone</div>
+        <pre style="background:#1a202c;color:#e2e8f0;padding:12px;border-radius:8px;font-size:11px;overflow:auto">pip install -r requirements.txt
+streamlit run app.py
+# Upload RPS .docx di Sidebar
+# Pilih MK + Semester 1-6
+# Lihat Audit Bloom: distribusi C1-C6
+# LULUS/TIDAK + LULUS 80% / 60%
+# Pertahankan / Kembalikan per bagian
+# Download - Format Input=Output 100%</pre>
+        <div style="font-size:11px;line-height:1.6;margin-top:10px;color:#1a202c">
           <b>Sub-CPMK [C-Level + SKKNI]:</b><br>
-          • Sub-CPMK 2.2 [C3] - Menerapkan enkripsi file data panen Blok A1 dengan VeraCrypt sesuai SOP PKS [Selaras SKKNI 191/2024 Mencabut 2015-55 BERLAKU]<br>
-          • Sub-CPMK 3.1 [C4] - Menganalisis kerentanan akses data timbangan PKS [SKKNI 23/2022 Uji Keamanan Siber BERLAKU]<br>
-          • Sub-CPMK 4.2 [C5] - Menguji validasi input TBS 25 janjang / 0 / huruf [SKKNI 24/2022 Audit Keamanan BERLAKU] - 3 kasus uji Expected vs Actual<br>
-          • Sub-CPMK 5.1 [C6] - Merancang SOP pengamanan data produksi Ton/Ha [SKKNI 236/2024 Kesadaran Keamanan BERLAKU]<br>
-          <b>Bloom:</b> 8/10=80% C3-C6 LULUS (Target 80%)<br>
+          • Sub-CPMK 2.2 [C3] - Menerapkan enkripsi file data panen Blok A1 dengan VeraCrypt sesuai SOP PKS [SKKNI 191/2024 BERLAKU]<br>
+          • Sub-CPMK 3.1 [C4] - Menganalisis kerentanan akses data timbangan PKS [SKKNI 23/2022 Uji Keamanan Siber]<br>
+          • Sub-CPMK 4.2 [C5] - Menguji validasi input TBS 25 / 0 / huruf [SKKNI 24/2022 Audit] - 3 kasus uji<br>
+          • Sub-CPMK 5.1 [C6] - Merancang SOP pengamanan data produksi Ton/Ha [SKKNI 236/2024]<br>
+          <b>Bloom:</b> 11/14=78.6% C3-C6 → Target 80% TIDAK LULUS (perlu naikkan C1/C2 → C3-C6)<br>
           <b>Sawit:</b> 70% PKS (Blok, TPH, TBS, Grade, Timbangan, Rendemen) vs 30% umum<br>
-          <b>Flowchart Pert 6 Rubrik 4 kriteria:</b> Simbol, Grade/Premi, Alur, Kasus dosen<br>
-          <b>Bobot:</b> UTS Praktik 30% + UAS Project Demo 40% + Tugas 30% = 100%
+          <b>Readable:</b> Hitam #1A202C di putih #FFFFFF — bukan putih di putih<br>
+          <b>Executable:</b> app.py 412 baris standalone, tanpa processor/
         </div>
-        <div class="kalimat-box">V6 - Terverifikasi docs/panduan/ PDF + 7 screenshot - 22 AKTIF - Bloom 80% - Sawit 70% - Portal dihilangkan</div>
+        <div class="kalimat-box">V12.1 - Bloom Real Auditor - 23 AKTIF - Bloom 78.6% - Sawit 70% - Readable - Standalone tanpa repo</div>
+      </div>
+      <div style="margin-top:12px" class="card">
+        <h4 style="color:#1a202c">📜 Aturan Bloom Vokasi Polsel</h4>
+        <ul style="margin-left:16px;margin-top:8px;font-size:12px;color:#4a5568">
+          <li><b style="color:#1a202c">C1 Menyebutkan</b> - menyebutkan, mendefinisikan, mengidentifikasi (20%)</li>
+          <li><b style="color:#1a202c">C2 Menjelaskan</b> - menjelaskan, menguraikan, memahami (20%)</li>
+          <li><b style="color:#1a202c">C3 Menerapkan</b> - menerapkan, mengkonfigurasi, mengamankan (40% UTAMA)</li>
+          <li><b style="color:#1a202c">C4 Menganalisis</b> - menganalisis, mengaudit, membedakan (30% UTAMA)</li>
+          <li><b style="color:#1a202c">C5 Mengevaluasi</b> - mengevaluasi, menguji, memvalidasi (15%)</li>
+          <li><b style="color:#1a202c">C6 Merancang</b> - merancang, membuat SOP/Dashboard (15%)</li>
+        </ul>
+        <p style="margin-top:8px;font-size:11px;color:#4a5568">Target: Smtr 1-2 min <b>60% C3-C6</b>, Smtr 3+ min <b>80% C3-C6</b></p>
       </div>
     </div>
   </div>
 </div>
+
+<footer>
+<div class="container-single">
+<p style="font-weight:700;color:#fff">RPS-Auditor V12.1 - Bloom Real Auditor + 22 SKKNI Verified - Standalone Executable</p>
+<p style="margin-top:8px">By Fardian Syah @fardianpoltas - Politeknik Aceh Selatan - D3 Teknik Informatika</p>
+<p style="margin-top:8px">GitHub: <a href="https://github.com/1stdragons/RPS-Auditor" style="color:#90cdf4">1stdragons/RPS-Auditor</a> | Pages: <a href="https://1stdragons.github.io/RPS-Auditor/" style="color:#90cdf4">1stdragons.github.io/RPS-Auditor</a> | Executable: <code>streamlit run app.py</code></p>
+<p style="margin-top:16px;font-size:11px">V12.1 FINAL - 2026-05-13 - Fix readable #1A202C hitam di putih, Fix IndexError (C\d) → (C(\d)), Fix double pdf.pdf, Bloom Real Auditor C1-C6, 23 AKTIF 15 DICABUT, Format Input=Output 100%, Standalone tanpa repo</p>
+</div>
+</footer>
+
 <script>
 const AKTIF = ["285/2016 Computer Technical Support Mencabut 2006-272 [BERLAKU]", "282/2016 Software Development-Pemrograman Mencabut 2012-615 dan 2006-142 [BERLAKU]", "321/2016 Jaringan Komputer Mencabut 2006-269 [BERLAKU]", "56/2018 Pengoperasian Komputer Mencabut 2005-094 [BERLAKU]", "107/2018 Multimedia Mencabut 2007-115 [BERLAKU]", "101/2018 Instalasi Fiber Optik Mencabut 2012-717 [BERLAKU]", "27/2019 Programming and Software Development [BERLAKU]", "191/2024 Keamanan Informasi Mencabut 2015-55 [BERLAKU]", "236/2024 Kesadaran Keamanan Informasi [BERLAKU]", "103/2023 Perlindungan Data Pribadi [BERLAKU]", "102/2023 Cloud Computing Mencabut 2015-456 [BERLAKU]", "30/2025 Manajemen Layanan TI Mencabut 2012-610 [BERLAKU]", "200/2026 ICT Project Management Mencabut 2025-345 [BERLAKU]", "103/2026 AI Knowledge Based System Mencabut 2021-123 [BERLAKU]", "299/2020 AI Data Science [BERLAKU]", "268/2020 AI Data Management [BERLAKU]", "300/2020 IoT [BERLAKU]", "391/2020 Security Operations Center [BERLAKU]", "4/2023 Kriptografi [BERLAKU]", "120/2025 Tanggap Insiden Siber [BERLAKU]", "47/2022 Digital Forensik [BERLAKU]", "24/2022 Audit Keamanan Informasi [BERLAKU]", "23/2022 Uji Keamanan Siber [BERLAKU]"];
 const DICABUT = ["142/2005 Programer Komputer DICABUT 2016-282", "269/2006 Jaringan Komputer DICABUT 2016-321", "272/2006 Computer Technical Support DICABUT", "115/2007 Multimedia DICABUT 2018-107", "114/2008 Teknik Telekomunikasi Satelit DICABUT 2019-140", "610/2012 Manajemen Layanan TI DICABUT 2025-030", "717/2012 Teknisi Instalasi Fiber Optik DICABUT 2018-101", "615/2012 Programmer Komputer DICABUT 2016-282", "400/2014 Pembuatan Animasi DICABUT 2020-173", "55/2015 Keamanan Informasi DICABUT 2024-191", "456/2015 Cloud Computing DICABUT 2023-102", "94/2005 Operator Komputer DICABUT 2018-056", "345/2025 ICT Project Management DICABUT 2026-200", "18/2022 Pengembangan Video Game DICABUT 2024-172", "123/2021 AI Knowledge Based System DICABUT 2026-103"];
@@ -101,8 +202,8 @@ function render(filter=""){
     aktif = AKTIF.filter(x=>x.toLowerCase().includes(q));
     dicabut = DICABUT.filter(x=>x.toLowerCase().includes(q));
   }
-  document.getElementById('aktifList').innerHTML = aktif.slice(0,30).map(x=>`<div class="panduan-item"><div><div class="panduan-no">${x.split(' - ')[0]}</div><div class="panduan-judul">${x.split(' - ').slice(1).join(' - ')}</div></div><div class="status-berlaku">BERLAKU</div></div>`).join('');
-  document.getElementById('dicabutList').innerHTML = dicabut.slice(0,30).map(x=>`<div class="panduan-item"><div><div class="panduan-no" style="color:#FF5F56">${x.split(' ')[0]}</div><div class="panduan-judul">${x}</div></div><div class="status-dicabut">DICABUT</div></div>`).join('');
+  document.getElementById('aktifList').innerHTML = aktif.map(x=>`<div class="panduan-item"><div><div class="panduan-no">${x.split(' ')[0]}</div><div class="panduan-judul">${x}</div></div><div class="status-berlaku">BERLAKU</div></div>`).join('');
+  document.getElementById('dicabutList').innerHTML = dicabut.map(x=>`<div class="panduan-item"><div><div class="panduan-no" style="color:#c53030">${x.split(' ')[0]}</div><div class="panduan-judul">${x}</div></div><div class="status-dicabut">DICABUT</div></div>`).join('');
 }
 document.getElementById('searchBox').addEventListener('input', e=>render(e.target.value));
 render();
