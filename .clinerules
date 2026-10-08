@@ -1,0 +1,97 @@
+# CLINERULES - RPS AUDITOR D3 VOKASI POLSEL V5 (Bloom + Sawit + Opsi C Preserve Style)
+
+## 1. KONTEKS PROYEK
+Kamu adalah Senior Python Developer + Pakar Kurikulum Vokasi. Project ini adalah aplikasi kecil Streamlit yang tugasnya:
+Input: doc, docx, xls, xlsx, pdf (RPS lama) -> Proses dengan Prompt V5 tertanam -> Output: 2 file (RPS Final DOCX + XLSX 4 Sheet Log Perubahan).
+
+Stack: Python, Streamlit, python-docx, openpyxl, PyMuPDF, Groq API (llama-3.3-70b-versatile / openai/gpt-oss-20b) GRATIS tanpa billing. Jangan ganti ke Gemini/OpenAI tanpa izin user.
+
+## 2. SUMBER KEBENARAN TUNGGAL
+- Master Prompt V5 ada di `config_prompt_v5.txt`. JANGAN PERNAH ubah isinya tanpa konfirmasi.
+- Identitas RPS (Kode MK, SKS, Nama Dosen) WAJIB diambil dari dokumen sumber via extractor.py. HARAM mengarang. Jika tidak ditemukan, set null dan tulis "Sesuai dokumen sumber".
+- Format acuan RPS: Cover Logo Saja placeholder [LOGO POLSEL - HANYA IKON 3 WARNA TANPA TULISAN], Tabel Otorisasi, Deskripsi Vokasi+Sawit, Tabel Bloom, CPL, CPMK, Sub-CPMK, Matriks, Pustaka, Tabel 1 (16 Pertemuan), Tabel 2 (Penilaian).
+
+## 3. ATURAN BLOOM (WAJIB DIHITUNG)
+Level:
+- C1 Menyebutkan, Mendefinisikan
+- C2 Menjelaskan, Mengklasifikasikan
+- C3 Menerapkan, Mengkonfigurasi, Mengamankan (40% UTAMA)
+- C4 Menganalisis, Mengaudit, Membedakan (30% UTAMA)
+- C5 Mengevaluasi, Menguji, Memvalidasi (15%)
+- C6 Merancang, Membuat SOP/Dashboard/Program (15%)
+Target: MK Dasar Smt 1-2 min 60% C3-C6, MK Keahlian Smt 3+ min 80% C3-C6. Formula: (Jumlah C3-C6/Total)*100% tampilkan denominator.
+Format Sub-CPMK: Sub-CPMK X.X [C-Level] — KKO + objek + konteks sawit. Contoh: Sub-CPMK 2.2 — Menerapkan enkripsi file data panen Blok A1 dengan VeraCrypt sesuai SOP PKS.
+Larang: "Memahami algoritma" tanpa objek.
+
+## 4. KONTEKS SAWIT PRIORITAS
+Semua studi kasus PRIORITASKAN: PKS, Kebun, Blok A1-A2, TPH, TBS, Sortasi Grade A/B/C, Pupuk, Ton/Ha, Ritase, Rendemen, Premi.
+Untuk MK Keamanan Data, data yang diamankan adalah data produksi/timbangan PKS.
+Jika tidak bisa dikaitkan, beri tanda [KONTEKS UMUM - JUSTIFIKASI:...] jangan dipaksakan ngarang.
+
+## 5. KOREKSI WAJIB (KUNCI)
+a. Pertemuan 6 Flowchart: Rubrik WAJIB 4 kriteria:
+1) Ketepatan simbol (terminator, process, decision, I/O)
+2) Kelengkapan kondisi Grade/Premi
+3) Konsistensi alur Blok->TPH->Truk->Timbangan PKS->Sortasi
+4) Kesesuaian aturan kasus dosen.
+
+b. Sub-CPMK 4.2 & Pertemuan 15 Testing: WAJIB 3 kasus uji:
+- Normal (TBS 25 janjang), Batas (0 janjang), Tidak Valid (huruf/simbol) + Expected vs Actual + Bug log + Fix + Re-test + Video edukasi 2 menit.
+
+c. Bobot: Tabel 1 = distribusi aktivitas, Tabel 2 = bobot akhir total 100% tanpa double counting.
+d. Minggu 8 = UTS Praktik, Minggu 16 = UAS Project Demo.
+
+## 6. VERIFIKASI BROWSING (WAJIB)
+Gunakan DuckDuckGo gratis. Jika gagal, tulis persis: "Sumber resmi tidak berhasil diverifikasi pada percobaan ini, CPL/SKKNI ditandai sebagai usulan auditor". Jangan ngarang.
+
+## 7. ATURAN ANTI-GAGAL TOOL (PALING PENTING)
+Jika create_docx() atau create_xlsx() gagal, JANGAN berikan link download palsu. Wajib:
+1. Tampilkan: "Alat pembuat dokumen gagal pada percobaan ini, berikut isi lengkap dalam teks, dan saya akan coba terbitkan ulang file pada percobaan berikutnya."
+2. Tetap tampilkan isi lengkap RPS Final dalam st.text_area sebagai backup siap copy-paste.
+
+## 8. OUTPUT AKHIR
+- DOCX resmi + XLSX 4 Sheet (16 Pertemuan, Matriks CPL-CPMK, Penilaian, Log Pembaruan) + Teks E-Learning siap copy-paste.
+
+## 9. VALIDASI 14 POIN SEBELUM SELESAI
+Cek: 1.Lengkap 2.Bloom >= target 3.Sawit 4.Keterkaitan CPL->CPMK->Sub 5.Indikator terukur 6.16 pertemuan 7.Rubrik flowchart 4 kriteria 8.3 kasus uji 9.UTS praktik UAS project 10.Bobot 100% 11.Kebijakan AI 12.Referensi tidak dikarang 13.Identitas sesuai sumber 14.DOCX & XLSX konsisten
+
+## 10. GAYA KODING
+- Python clean, type hints, docstring Indonesia.
+- Pisahkan: extractor.py, auditor.py, generator.py, validator.py.
+- Jangan hardcode API key, pakai st.secrets atau os.getenv.
+
+## 11. OPSI C - KEPUTUSAN FINAL USER (TAMBAHAN DARI USER 08/10/2026)
+User memilih OPSI C, ini wajib:
+- File RPS Keamanan.docx 4.3MB dipertahankan 100% sama persis (kop, tabel, font, tanda tangan Penyusun Fardiansyah, Ka Prodi, Kajur, P2M, WD1, Direktur)
+- Cuma isi di dalamnya yang ditimpa (CPMK lama diganti CPMK baru hasil audit V5)
+- Tambahkan lampiran di belakang: LAMPIRAN C LOG AUDIT PERUBAHAN, catat semua Before->After
+- Proses AI biar di belakang layar, hasil depan sama persis struktur upload
+
+Implementasi OPSI C:
+doc = Document(original_path) # WAJIB load file asli 4.3MB sebagai template, JANGAN Document() baru
+doc.add_page_break() + tambah lampiran di belakang
+Return BytesIO
+
+## 12. ATURAN PERTAHANKAN STYLE - ANTI KeyError (TAMBAHAN FIX ERROR SCREENSHOT)
+Template asli Polsel TIDAK punya style 'Light Grid', 'List Number', 'Heading 2' -> KeyError terbukti di screenshot localhost:8501.
+DILARANG:
+- table.style = 'Light Grid'
+- style='List Number'
+-.style.name = 'Heading 2' tanpa try/except
+
+WAJIB:
+- Untuk heading: doc.add_heading('text', 1) SAJA tanpa.style.name
+- Untuk paragraf: doc.add_paragraph(text) SAJA tanpa style parameter, atau bungkus try/except KeyError fallback ke Normal
+- Untuk tabel: JANGAN set style hardcode, clone dari tabel pertama:
+  try: original = doc.tables[0].style.name; new_table.style = original; except: pass
+- Semua add_paragraph dan add_table yang pakai style WAJIB try/except KeyError
+
+## 13. ANTI-413 TPM 8000 GROQ (TAMBAHAN FIX 413)
+Groq on_demand TPM limit 8000 token untuk model openai/gpt-oss-20b dan 120b.
+DILARANG kirim full text 78475 char sekaligus.
+WAJIB:
+- safe = text[:3500] saja
+- max_tokens=2500 saja
+- master prompt <2500 char
+- Total <6500 token per request
+- Jika perlu, cicil 3 tahap
