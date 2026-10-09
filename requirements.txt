@@ -1,2 +1,2 @@
-streamlit\npython-docx\nopenpyxl\nreportlab\ngroq\n
-
+streamlit
+python-docx
