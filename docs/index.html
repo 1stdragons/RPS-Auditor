@@ -64,7 +64,7 @@ footer{background:#1a202c;color:#a0aec0;padding:40px 0;margin-top:40px;text-alig
 <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap">
 <a href="https://github.com/1stdragons/RPS-Auditor" class="btn btn-primary">📦 GitHub Repo</a>
 <a href="https://github.com/1stdragons/RPS-Auditor/blob/main/app.py" class="btn btn-secondary">📄 Lihat app.py V12.1</a>
-<a href="#" onclick="alert('Jalankan: pip install -r requirements.txt && streamlit run app.py');return false" class="btn btn-secondary">🚀 RUN Standalone</a>
+<button onclick="document.getElementById('runModal').style.display='flex'" class="btn btn-secondary" style="cursor:pointer;border:1px solid #e2e8f0">🚀 RUN Standalone</button>tElementById('runModal').style.display='flex'" class="btn btn-secondary" style="cursor:pointer;border:1px solid #e2e8f0">🚀 RUN Standalone</button>
 </div>
 <div style="margin-top:20px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
 <span class="badge badge-green">✅ Fix IndexError no such group</span>
@@ -181,6 +181,24 @@ streamlit run app.py
       </div>
     </div>
   </div>
+</div>
+
+
+<div id="runModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;padding:20px">
+<div style="background:#fff;border-radius:16px;max-width:560px;width:100%;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.3)">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+<h3 style="color:#1a202c;font-size:18px">Cara Jalankan Standalone</h3>
+<button onclick="document.getElementById('runModal').style.display='none'" style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;width:32px;height:32px;cursor:pointer">X</button>
+</div>
+<div style="background:#fff5f5;border:1px solid #feb2b2;border-radius:8px;padding:10px;margin-bottom:12px;color:#c53030;font-size:12px"><b>GitHub Pages tidak bisa jalankan Streamlit</b> - Pages cuma static. Jalankan di laptop.</div>
+<pre style="background:#1a202c;color:#e2e8f0;padding:12px;border-radius:8px;font-size:12px;overflow:auto">pip install -r requirements.txt
+streamlit run app.py</pre>
+<div style="display:flex;gap:8px;margin-top:12px">
+<a href="https://github.com/1stdragons/RPS-Auditor/archive/refs/heads/main.zip" style="background:#1a202c;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:13px;flex:1;text-align:center">Download ZIP</a>
+<button onclick="navigator.clipboard.writeText('pip install -r requirements.txt && streamlit run app.py')" style="background:#fff;border:1px solid #e2e8f0;padding:10px 16px;border-radius:8px;flex:1;cursor:pointer">Copy</button>
+</div>
+<div style="margin-top:12px;background:#f0fff4;border:1px solid #9ae6b4;border-radius:8px;padding:10px;color:#22543d;font-size:11px">Alternatif browser langsung: Deploy ke Streamlit Cloud gratis di share.streamlit.io - connect repo 1stdragons/RPS-Auditor - dapat link streamlit.app</div>
+</div>
 </div>
 
 <footer>
